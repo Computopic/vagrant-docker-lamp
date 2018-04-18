@@ -1,7 +1,29 @@
 FROM ubuntu:16.04
 
 # Install packages
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install ssh bash sudo supervisor git apache2 memcached php7.0 libapache2-mod-php mysql-server php-mysql php-curl php-gd php-mcrypt php-xdebug php-memcache php-intl php-xsl php-zip phpmyadmin pwgen drush unzip
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install \
+	ssh \
+	bash \
+	sudo \
+	supervisor \
+	git \
+	apache2 \
+	memcached \
+	php7.0 \
+	libapache2-mod-php \
+	mysql-server \
+	php-mysql \
+	php-curl \
+	php-gd \
+	php-mcrypt \
+	php-xdebug \
+	php-memcache \
+	php-intl \
+	php-xsl \
+	php-zip \
+	phpmyadmin \
+	pwgen \
+	unzip
 
 # Add image configuration and scripts
 ADD start-apache2.sh /start-apache2.sh
@@ -18,14 +40,11 @@ ADD supervisord-sshd.conf /etc/supervisor/conf.d/supervisord-sshd.conf
 
 # Add MySQL users and `database`
 ADD create_mysql_admin_user.sh /create_mysql_admin_user.sh
-ADD install_webgrind.sh /install_webgrind.sh
-ADD install_n98-magerun.sh /install_n98-magerun.sh
 ADD install_composer.sh /install_composer.sh
 RUN chmod 755 /*.sh /sbin/shutdown
 
 # Apache config
 ADD apache_default /etc/apache2/sites-available/000-default.conf
-ADD apache_webgrind /etc/apache2/sites-enabled/webgrind.conf
 ADD ports.conf /etc/apache2/ports.conf
 RUN a2enmod rewrite headers suexec
 
