@@ -1,8 +1,8 @@
 # Vagrant LAMP config with Docker
 
-Instant development environment. Vagrant/Docker files for a LAMP Virtual Machine like setup. In approach to give the speed of the bare metal but the security of a VM using Linux Container (LXC). This configuration gives you a fast, reproducible development environment.
+Instant development environment. Vagrant/Docker files for a LAMP Virtual Machine like setup. In approach to give the speed of the bare metal but the security of a VM using Docker container. This configuration gives you a fast, reproducible development environment.
 
-This configuration is designed for Magento and Magento 2 development, but can be also used for any PHP application. Tested with Drupal 8 as well. Note for Magento 1, you will need a PHP7 compatibility patch.
+This configuration is designed for any PHP application.
 
 ## Provides
 
@@ -15,8 +15,6 @@ This configuration is designed for Magento and Magento 2 development, but can be
   * supervisord for keeping ssh, apache, mysql running (no init scripts).
   * shutdown script
   * Pre configured Apache virtualhost and a database ready to use
-  * XDebug and Webgrind
-  * n98-magerun
   * Just drop the `dev` folder and `Vagrantfile` into your project and do `vagrant up`
 
 ## Preparation
@@ -39,66 +37,10 @@ Add this line to your `/etc/hosts` (or windows equivalent)
 
 Your project folder will be served on this url: http://www.dev-site.com:8080
 
-Webgrind is available on this url: http://www.dev-site.com:8080/webgrind
-
-For best use of XDebug and Webgrind features in Chromium, I suggest the [Xdebug helper extension](https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc)
-
 You can SSH to the box:
 
     vagrant ssh
 
-A mysql database has been set up and ready to use immediately. Username: `myadmin`. Password: `myadmin`. Database name: `database`
+A mysql database has been set up and ready to use immediately. Username: `admin`. Password: `admin`. Database name: `database`
 
-## XDebug with Sublime Text
-
-Install this plugin via Package Control: https://github.com/martomo/SublimeTextXdebug
-
-### Keyboard Shortcuts
-
-Shift+f8: Open XDebug quick panel
-
-f8: Open XDebug control quick panel when debugger is connected
-
-Ctrl+f8: Toggle breakpoint
-
-Ctrl+Shift+f5: Run to next breakpoint
-
-Ctrl+Shift+f6: Step over
-
-Ctrl+Shift+f7: Step into
-
-Ctrl+Shift+f8: Step out
-
-### Project configuration
-
-*.sublime-project:
-
-    {
-        "folders":
-        [
-            {
-                "path": "..."
-            }
-        ],
-        "settings":
-        {
-            "xdebug": {
-                "path_mapping": {
-                    "/vagrant" : "/absolute/path/to/project/on/computer",
-                },
-                "ide_key": "sublime.xdebug",
-                "url": "http://www.dev-site.com:8080",
-                "port": 9000,
-                "close_on_stop": true,
-                "debug": true
-            }
-        }
-    }
-
-## Disable XDebug
-
-edit /etc/php5/apache2/conf.d/20-xdebug.ini and comment out the line:
-
-```
-;zend_extension=xdebug.so
-```
+Mysql root access is blocked with random password, stored on file on the VM.
