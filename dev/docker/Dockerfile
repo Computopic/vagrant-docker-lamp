@@ -25,6 +25,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install \
 	pwgen \
 	unzip
 
+COPY ./database ./database
+
 # Add image configuration and scripts
 ADD start-apache2.sh /start-apache2.sh
 ADD start-mysqld.sh /start-mysqld.sh

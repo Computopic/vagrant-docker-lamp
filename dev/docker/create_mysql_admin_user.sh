@@ -38,6 +38,11 @@ echo ""
 echo "Please remember to change the above password as soon as possible!"
 echo "========================================================================"
 
+SQL_FILES=$(ls /database | grep -E ".sql$")
+
+for SF in $SQL_FILES; do
+    mysql -uroot -h localhost < "/database/$SF"
+done
 
 # RANDOMIZE ROOT PASS
 
