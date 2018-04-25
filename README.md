@@ -14,8 +14,6 @@ This configuration is designed for any PHP application.
   * SSH
   * supervisord for keeping ssh, apache, mysql running (no init scripts).
   * shutdown script
-  * Pre configured Apache virtualhost and a database ready to use
-  * Just drop the `dev` folder and `Vagrantfile` into your project and do `vagrant up`
 
 ## Preparation
 
