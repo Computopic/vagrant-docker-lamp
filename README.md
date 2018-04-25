@@ -25,6 +25,8 @@ Install Docker (>= 1.0.0) https://docs.docker.com/installation/ubuntulinux/
 
 Copy the `dev` folder and `Vagrantfile` from this repository to your project folder
 
+All SQL files in `database` will be imported given they have "CREATE DATABASE".
+
     vagrant up
 
 It will take a few minutes for the first time.
