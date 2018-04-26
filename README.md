@@ -33,13 +33,19 @@ Add this line to your `/etc/hosts` (or windows equivalent)
 
 Your project folder will be served on this url: http://www.dev-site.com:8080
 
-Clone repo to your project folder and run:
+Clone repo to your project folder:
+
+    git clone https://github.com/Computopic/vagrant-docker-lamp <project_dest>
+
+And run:
 
     sudo ./setup.sh
 
 Your machine will reboot when preperations are done.
 
 ## Installation
+
+Run from `Vagrantfile` / project -location:
 
     vagrant up
 
