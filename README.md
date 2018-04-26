@@ -33,9 +33,9 @@ Add this line to your `/etc/hosts` (or windows equivalent)
 
 Your project folder will be served on this url: http://www.dev-site.com:8080
 
-Then run
+Clone repo to your project folder and run:
 
-    ./setup.sh
+    sudo ./setup.sh
 
 Your machine will reboot when preperations are done.
 
