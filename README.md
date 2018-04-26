@@ -1,10 +1,18 @@
-# Vagrant LAMP config with Docker
+# Vagrant LAMP config with Docker and NPM
 
-Instant development environment. Vagrant/Docker files for a LAMP Virtual Machine like setup. In approach to give the speed of the bare metal but the security of a VM using Docker container. This configuration gives you a fast, reproducible development environment.
+Instant development environment. Vagrant/Docker/NPM files for a LAMP Virtual Machine like setup. In approach to give the speed of the bare metal but the security of a VM using Docker container. This configuration gives you a fast, reproducible development environment.
 
 This configuration is designed for any PHP application.
 
-## Provides
+## Includes
+
+  * Vagrant
+  * Docker
+  * NodeJS
+  * NPM
+  * Gulp (sass, uglify, rename)
+
+## Box Provides
 
   * Ubuntu 16.04
   * Apache 2.4.18
@@ -15,27 +23,27 @@ This configuration is designed for any PHP application.
   * supervisord for keeping ssh, apache, mysql running (no init scripts).
   * shutdown script
 
-## Preparation
+## Setup/Pre-install
 
-Install Vagrant (>= 1.6.2): http://www.vagrantup.com/downloads.html
+Simply run the `./setup.sh` script and it will install.
 
-Install Docker (>= 1.0.0) https://docs.docker.com/installation/ubuntulinux/
-
-Copy the `dev` folder and `Vagrantfile` from this repository to your project folder
-
-All SQL files in `database` will be imported given they have "CREATE DATABASE".
-
-    vagrant up
-
-It will take a few minutes for the first time.
-
-## Start using
+All SQL files in `database` folder will be imported given they have "CREATE DATABASE".
 
 Add this line to your `/etc/hosts` (or windows equivalent)
 
     127.0.0.1 www.dev-site.com dev-site.com dev.dev-site-static.com
 
 Your project folder will be served on this url: http://www.dev-site.com:8080
+
+Your machine will reboot when preperations are done.
+
+## Installation
+
+    vagrant up
+
+It will take a few minutes for the first time.
+
+## Start using
 
 You can SSH to the box:
 
