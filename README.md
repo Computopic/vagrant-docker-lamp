@@ -25,8 +25,6 @@ This configuration is designed for any PHP application.
 
 ## Setup/Pre-install
 
-Simply run the `./setup.sh` script and it will install.
-
 All SQL files in `database` folder will be imported given they have "CREATE DATABASE".
 
 Add this line to your `/etc/hosts` (or windows equivalent)
@@ -34,6 +32,10 @@ Add this line to your `/etc/hosts` (or windows equivalent)
     127.0.0.1 www.dev-site.com dev-site.com dev.dev-site-static.com
 
 Your project folder will be served on this url: http://www.dev-site.com:8080
+
+Then run
+
+    ./setup.sh
 
 Your machine will reboot when preperations are done.
 
