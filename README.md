@@ -43,12 +43,46 @@ Your machine will reboot when preperations are done.
 
 It will take a few minutes for the first time.
 
-## Start using
+A mysql database has been set up and ready to use immediately. Username: `admin`. Password: `admin`. Database name: `database`
+
+Mysql root access is blocked with random password, stored on file on the VM.
+
+## Start using Vagrant
+
+Boot up the box:
+
+    vagrant up
 
 You can SSH to the box:
 
     vagrant ssh
 
-A mysql database has been set up and ready to use immediately. Username: `admin`. Password: `admin`. Database name: `database`
+Stop the box:
 
-Mysql root access is blocked with random password, stored on file on the VM.
+    vagrant halt
+
+Destroy the box:
+
+    vagrant destroy
+
+## Start using Gulp
+
+Edit the theme, source and destination -path in `gulpfile.js`.
+
+To build CSS and JS manually:
+
+    gulp build
+
+To listen for file changes:
+
+    gulp listen
+
+## Start using Docker
+
+Kill all processes:
+
+    docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
+
+Clean up old images:
+
+    docker rmi $(docker images -q -f dangling=true)
