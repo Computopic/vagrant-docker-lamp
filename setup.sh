@@ -14,4 +14,8 @@ apt install docker.io
 groupadd docker
 usermod -aG docker $USER
 
-reboot
+read -p "Continue (y/n)?......" choice
+case "$choice" in
+  y|Y ) reboot;;
+  * ) echo "Cancelled reboot, please reboot manually before continuing installation";;
+esac
