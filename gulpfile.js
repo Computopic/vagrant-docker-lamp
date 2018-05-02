@@ -4,7 +4,7 @@
 //
 //==============================================================================
 
-var themePath = 'path/to/template/files/';
+var themePath = 'www/';
 
 var cssSrc = [themePath + 'css/unbuild/*.css', themePath + 'css/unbuild/*.scss'];
 var cssDest = themePath + 'css/minified/';
