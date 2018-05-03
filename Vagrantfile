@@ -19,13 +19,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.username = "root"
   config.ssh.port = 22
 
-  config.vm.provider "docker" do |d|
-    d.build_dir = "./dev/docker"
-    d.has_ssh = true
-    d.cmd = ["/run.sh"]
+  config.vm.provider "docker" do |docker|
+    docker.create_args = ["-it"]
+    docker.build_dir = "./dev/docker"
+    docker.has_ssh = true
+    docker.name = "MyGoodParty"
+    docker.volumes = [
+        "/home/mikkel/Dokumenter/Development/MyGoodParty/webapp2.0/dev/docker/mysql:/var/lib/mysql"
+    ]
+    docker.cmd = ["/run.sh"]
   end
 
-  config.vm.network :forwarded_port, guest: 80, host: 8080
+  config.vm.network :forwarded_port, guest: 80, host: 80
   config.vm.network :forwarded_port, guest: 443, host: 8443
   config.vm.network :forwarded_port, guest: 35729, host: 35729 # Livereload
 
