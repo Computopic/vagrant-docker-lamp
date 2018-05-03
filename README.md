@@ -37,6 +37,10 @@ Clone repo to your project folder:
 
     git clone https://github.com/Computopic/vagrant-docker-lamp <project_dest>
 
+Open `Vagrantfile` and fill in path info:
+
+    "<absolute_path_to_vagrant>/dev/docker/mysql:/var/lib/mysql"
+
 And run:
 
     sudo ./setup.sh
