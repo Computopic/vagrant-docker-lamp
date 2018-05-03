@@ -57,3 +57,6 @@ mysqladmin -uroot -p"$ROOTPASS" shutdown
 echo "=> Done!"
 touch /.mysql_root_created
 echo $ROOTPASS >> /.mysql_root_created
+
+mkdir /var/lib/mysql2
+cp -R /var/lib/mysql/* /var/lib/mysql2/
