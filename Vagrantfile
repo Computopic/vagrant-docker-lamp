@@ -25,7 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     docker.has_ssh = true
     docker.name = "MyGoodParty"
     docker.volumes = [
-        "/home/mikkel/Dokumenter/Development/MyGoodParty/webapp2.0/dev/docker/mysql:/var/lib/mysql"
+        "<absolute_path_to_vagrant>/dev/docker/mysql:/var/lib/mysql"
     ]
     docker.cmd = ["/run.sh"]
   end
