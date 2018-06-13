@@ -23,7 +23,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     docker.create_args = ["-it"]
     docker.build_dir = "./dev/docker"
     docker.has_ssh = true
-    docker.name = "MyGoodParty"
+    docker.name = "MyProject"
     docker.volumes = [
         "<absolute_path_to_vagrant>/dev/docker/mysql:/var/lib/mysql"
     ]
